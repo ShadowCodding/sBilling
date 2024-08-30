@@ -26,6 +26,8 @@ RegisterNetEvent("billing:receiveBill", function(data)
     bills = data
 end)
 
+
+
 main_menu:SetItems(function(Items)
     local closestPlayer, closestDistance = ESX.Game.GetClosestPlayer()
 
@@ -45,12 +47,6 @@ main_menu:SetItems(function(Items)
 
 
     Items:AddButton("Faire une facture", "Accédez à la création de facture", { RightLabel = "→" }, function(onSelected, onHovered)
-        if (onHovered) then
-            if (closestPlayer ~= -1 and closestDistance <= 3.0) then
-                local coords = GetEntityCoords(GetPlayerPed(closestPlayer))
-                DrawMarker(2, coords.x, coords.y, coords.z + 1.3, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.5, 0.5, 0.5, 255, 255, 255, 170, 0, 1, 2, 0, nil, nil, 0)
-            end
-        end
     
         if (onSelected) then
             local label = zUI.KeyboardInput("Création de la facture", "Veuillez entrer la raison de la facture", "", 100)
