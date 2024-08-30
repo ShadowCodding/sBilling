@@ -47,7 +47,8 @@ main_menu:SetItems(function(Items)
     Items:AddButton("Faire une facture", "Accédez à la création de facture", { RightLabel = "→" }, function(onSelected, onHovered)
         if (onHovered) then
             if (closestPlayer ~= -1 and closestDistance <= 3.0) then
-                DrawMarker(1, GetEntityCoords(GetPlayerPed(closestPlayer)), 0.0, 0.0, 0.0, 0, 0.0, 0.0, 0.0, 0.5, 0.5, 0.5, 255, 0, 0, 255, false, false, 2, nil, nil, false)
+                local coords = GetEntityCoords(GetPlayerPed(closestPlayer))
+                DrawMarker(2, coords.x, coords.y, coords.z + 1.3, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.5, 0.5, 0.5, 255, 255, 255, 170, 0, 1, 2, 0, nil, nil, 0)
             end
         end
     
